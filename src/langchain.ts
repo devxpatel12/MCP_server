@@ -22,38 +22,38 @@ function closeObjectSchemas(schema: unknown): void {
 }
 
 const adapter = new MCPAdapter({
-    servers: { 
-        tasks: { 
-            url: "http://127.0.0.1:3000/mcp", 
-            transport: "http" 
-        } 
+    servers: {
+        tasks: {
+            url: "http://127.0.0.1:3000/mcp",
+            transport: "http"
+        }
     },
 });
 const prompt = readline.createInterface({ input, output });
 const tools = await adapter.listTools();
 const schema = tools.map((tool) => tool.schema);
-console.log("before: ",schema);
+console.log("before: ", schema);
 try {
     const tools = await adapter.listTools();
     tools.forEach((tool) => closeObjectSchemas(tool.schema));
-    console.log("after: ",tools.map((tool) => tool.schema));
+    console.log("after: ", tools.map((tool) => tool.schema));
 
-    // const agent = createAgent({
-    //     model: "gpt-4o-mini",
-    //     tools,
-    //     systemPrompt: "you are a helpful task management assistant",
-    //     checkpointer: new MemorySaver(),
-    // });
-    // const config = { configurable: { thread_id: randomUUID() } };
+    const agent = createAgent({
+        model: "gpt-4o-mini",
+        tools,
+        systemPrompt: "you are a helpful task management assistant",
+        checkpointer: new MemorySaver(),
+    });
+    const config = { configurable: { thread_id: randomUUID() } };
 
-    // let question = "can you please help me";
-    // while (question !== "q") {
-    //     const result = await agent.invoke({ messages: [new HumanMessage(question)] }, config);
-    //     const messages = result.messages as { text: string }[];
-    //     console.log(messages.at(-1)?.text);
-    //     question = (await prompt.question("please ask your question or type q to exit:\n")).trim();
-    // }
+    let question = "can you please help me";
+    while (question !== "q") {
+        const result = await agent.invoke({ messages: [new HumanMessage(question)] }, config);
+        const messages = result.messages as { text: string }[];
+        console.log(messages.at(-1)?.text);
+        question = (await prompt.question("please ask your question or type q to exit:\n")).trim();
+    }
 } finally {
-    // prompt.close();
-    // await adapter.close();
+    prompt.close();
+    await adapter.close();
 }
