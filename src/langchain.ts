@@ -30,13 +30,13 @@ const adapter = new MCPAdapter({
     },
 });
 const prompt = readline.createInterface({ input, output });
-const tools = await adapter.listTools();
-const schema = tools.map((tool) => tool.schema);
-console.log("before: ", schema);
+// const tools = await adapter.listTools();
+// const schema = tools.map((tool) => tool.schema);
+// console.log("before: ", schema);
 try {
     const tools = await adapter.listTools();
     tools.forEach((tool) => closeObjectSchemas(tool.schema));
-    console.log("after: ", tools.map((tool) => tool.schema));
+    // console.log("after: ", tools.map((tool) => tool.schema));
 
     const agent = createAgent({
         model: "gpt-4o-mini",
@@ -57,3 +57,4 @@ try {
     prompt.close();
     await adapter.close();
 }
+
