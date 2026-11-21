@@ -11,7 +11,9 @@
     "db:down": "docker compose down",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
-    "db:studio": "drizzle-kit studio"
+    "db:studio": "drizzle-kit studio",
+    "langchain":"tsx src/langchain.ts",
+    "client":"tsx src/client.ts"
   },
   "keywords": [],
   "author": "",

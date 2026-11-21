@@ -1,0 +1,8 @@
+{
+    "mcpServers":{
+        "my_local_mcp":{
+            "type":"http",
+            "url":"http://localhost:3000/mcp"
+        }
+    }
+}
