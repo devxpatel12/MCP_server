@@ -12,8 +12,8 @@
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:studio": "drizzle-kit studio",
-    "langchain":"tsx src/langchain.ts",
-    "client":"tsx src/client.ts"
+    "langchain": "tsx src/langchain.ts",
+    "client": "tsx src/client.ts"
   },
   "keywords": [],
   "author": "",
@@ -24,7 +24,6 @@
     "@langchain/langgraph": "^1.7.3",
     "@langchain/mcp-adapters": "^2.0.2",
     "@langchain/openai": "^1.8.3",
-    "@modelcontextprotocol/sdk": "^1.32.2",
     "@prefecthq/fastmcp-ts": "^1.9.1",
     "dotenv": "^18.0.10",
     "drizzle-orm": "^0.45.4",

@@ -25,7 +25,7 @@ cp .env.example .env
 npm install
 ```
 
-Runtime packages: `@prefecthq/fastmcp-ts`, `zod`, `drizzle-orm`, `postgres`, `dotenv`, `langchain`, `@langchain/core`, `@langchain/langgraph`, `@langchain/mcp-adapters`, `@langchain/openai`, and `@modelcontextprotocol/sdk`.
+Runtime packages: `@prefecthq/fastmcp-ts`, `zod`, `drizzle-orm`, `postgres`, `dotenv`, `langchain`, `@langchain/core`, `@langchain/langgraph`, `@langchain/mcp-adapters`, `@langchain/openai`.
 
 Dev packages: `typescript`, `tsx`, `drizzle-kit`, and `@types/node`.
 
